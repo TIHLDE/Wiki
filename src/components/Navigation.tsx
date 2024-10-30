@@ -231,6 +231,12 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
+    title: 'Om oss',
+    links: [
+      { title: 'Kontakt oss', href: '/kontakt' },
+    ]
+  },
+  {
     title: 'Guides',
     links: [
       { title: 'Introduction', href: '/' },
