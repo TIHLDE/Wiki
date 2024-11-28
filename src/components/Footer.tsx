@@ -130,7 +130,7 @@ function SmallPrint() {
         &copy; Copyright {new Date().getFullYear()}. All rights reserved.
       </p>
       <div className="flex gap-4">
-        <SocialLink href="#" icon={GitHubIcon}>
+        <SocialLink href="https://github.com/TIHLDE/Wiki" icon={GitHubIcon}>
           Follow us on GitHub
         </SocialLink>
         <SocialLink href="https://discord.com/invite/HNt5XQdyxy" icon={DiscordIcon}>
