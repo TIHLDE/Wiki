@@ -61,6 +61,29 @@ export const metadata = {
 };
 ```
 
+## Publish changes
+
+To make changes to the site, you must first create a pull request. When the pull request is approved, the changes will be deployed to the live site.
+
+```bash
+# Create a new branch
+git checkout -b <branch-name>
+
+# Make your changes
+
+# Add and commit your changes
+git add .
+git commit -m "Your commit message"
+
+# Push your changes to GitHub
+# After the first time, you can use `git push` without the origin and branch name
+git push origin <branch-name>
+
+# Create a pull request on GitHub
+
+# After the pull request is approved, you can merge the changes into the main branch, which will deploy the changes to the live site
+```
+
 ## Learn more
 
 To learn more about the technologies used in this site template, see the following resources:
