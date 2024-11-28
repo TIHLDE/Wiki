@@ -84,6 +84,10 @@ git push origin <branch-name>
 # After the pull request is approved, you can merge the changes into the main branch, which will deploy the changes to the live site
 ```
 
+## Something wrong, or want to improve the site?
+
+If you find something wrong with the site, or if you want to improve the site, you can create an issue on GitHub. You can also create a pull request with your changes, and this will be approved if the changes are good.
+
 ## Learn more
 
 To learn more about the technologies used in this site template, see the following resources:
