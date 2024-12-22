@@ -233,6 +233,7 @@ export const navigation: Array<NavGroup> = [
     title: 'Søknader',
     links: [
       { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
+      { title: 'Andre søknader', href: '/soknader-andre' },
     ]
   },
   {
