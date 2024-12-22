@@ -230,6 +230,12 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
+    title: 'Søknader',
+    links: [
+      { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
+    ]
+  },
+  {
     title: 'Om oss',
     links: [
       { title: 'Kontakt oss', href: '/kontakt' },
