@@ -241,6 +241,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'TIHLDEs logo', href: '/TIHLDEs-logo' },
       { title: 'TIHLDE-eden', href: '/TIHLDE-eden' },
+      { title: 'Sanger', href: '/sanger' },
     ]
   },
   {
