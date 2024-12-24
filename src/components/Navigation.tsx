@@ -233,6 +233,7 @@ export const navigation: Array<NavGroup> = [
     title: 'Vedtekter',
     links: [
       { title: '1 TIHLDEs lover', href: '/TIHLDEs-lover' },
+      { title: '2 Styreinstruks for Hovedstyret', href: '/styreinstruks-hovedstyret' },
     ]
   },
   {
