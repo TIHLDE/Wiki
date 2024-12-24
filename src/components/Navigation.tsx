@@ -234,6 +234,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: '1 TIHLDEs lover', href: '/TIHLDEs-lover' },
       { title: '2 Styreinstruks for Hovedstyret', href: '/styreinstruks-hovedstyret' },
+      { title: '3 Felles instruks for undergruppeledere', href: '/styreinstruks-undergruppeledere' }, 
     ]
   },
   {
