@@ -192,6 +192,14 @@ export default function typographyStyles({ theme }: PluginUtils) {
           marginTop: theme('spacing.10'),
           marginBottom: theme('spacing.2'),
         },
+        h4: {
+          color: 'var(--tw-prose-headings)',
+          fontWeight: '600',
+          fontSize: theme('fontSize.sm')[0],
+          ...theme('fontSize.sm')[1],
+          marginTop: theme('spacing.8'),
+          marginBottom: theme('spacing.2'),
+        },
 
         // Media
         'img, video, figure': {
