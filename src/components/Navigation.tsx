@@ -230,6 +230,12 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
+    title: 'Vedtekter',
+    links: [
+      { title: '1 TIHLDEs lover', href: '/TIHLDEs-lover' },
+    ]
+  },
+  {
     title: 'Søknader',
     links: [
       { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
