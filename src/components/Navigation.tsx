@@ -230,6 +230,27 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
+    title: 'Om oss',
+    links: [
+      { title: 'Kontakt oss', href: '/kontakt' },
+    ]
+  },
+  {
+    title: 'Historie og diverse',
+    links: [
+      { title: 'TIHLDEs logo', href: '/TIHLDEs-logo' },
+      { title: 'TIHLDE-eden', href: '/TIHLDE-eden' },
+      { title: 'Sanger', href: '/sanger' },
+    ]
+  },
+  {
+    title: 'Søknader',
+    links: [
+      { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
+      { title: 'Andre søknader', href: '/soknader-andre' },
+    ]
+  },
+  {
     title: 'Vedtekter',
     links: [
       { title: '1 TIHLDEs lover', href: '/TIHLDEs-lover' },
@@ -244,49 +265,6 @@ export const navigation: Array<NavGroup> = [
       { title: '10 TIHLDE fondet', href: '/instruks-fondet' },
       { title: '11 Regler og instrukser for Kiosk og Kontor', href: '/instruks-kok' },
     ]
-  },
-  {
-    title: 'Søknader',
-    links: [
-      { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
-      { title: 'Andre søknader', href: '/soknader-andre' },
-    ]
-  },
-  {
-    title: 'Historie og diverse',
-    links: [
-      { title: 'TIHLDEs logo', href: '/TIHLDEs-logo' },
-      { title: 'TIHLDE-eden', href: '/TIHLDE-eden' },
-      { title: 'Sanger', href: '/sanger' },
-    ]
-  },
-  {
-    title: 'Om oss',
-    links: [
-      { title: 'Kontakt oss', href: '/kontakt' },
-    ]
-  },
-  {
-    title: 'Guides',
-    links: [
-      { title: 'Introduction', href: '/' },
-      { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
-    ],
-  },
-  {
-    title: 'Resources',
-    links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
-    ],
   },
 ]
 
