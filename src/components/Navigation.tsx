@@ -241,7 +241,8 @@ export const navigation: Array<NavGroup> = [
       { title: '7 Regler og instrukser for De Eldstes Raad', href: '/instruks-eldste' }, 
       { title: '8 Regler og instrukser for bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
       { title: '9 Regler og instrukser for Index', href: '/instruks-index' },
-      { title : '10 TIHLDE fondet', href: '/instruks-fondet' },
+      { title: '10 TIHLDE fondet', href: '/instruks-fondet' },
+      { title: '11 Regler og instrukser for Kiosk og Kontor', href: '/instruks-kok' },
     ]
   },
   {
