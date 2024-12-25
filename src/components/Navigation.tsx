@@ -236,7 +236,8 @@ export const navigation: Array<NavGroup> = [
       { title: '2 Styreinstruks for Hovedstyret', href: '/instruks-hovedstyret' },
       { title: '3 Felles instruks for undergruppeledere', href: '/instruks-undergruppeledere' },
       { title: '4 Regler og instrukser for Sosialen', href: '/instruks-sosialen' },
-      { title: '5 Regler og instrukser for Næingsliv og Kurs', href: '/instruks-nok' },
+      { title: '5 Regler og instrukser for Næringsliv og Kurs', href: '/instruks-nok' },
+      { title: '6 Regler og instrukser for Promo', href: '/instruks-promo' },
     ]
   },
   {
