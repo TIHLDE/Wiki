@@ -238,8 +238,9 @@ export const navigation: Array<NavGroup> = [
       { title: '4 Regler og instrukser for Sosialen', href: '/instruks-sosialen' },
       { title: '5 Regler og instrukser for Næringsliv og Kurs', href: '/instruks-nok' },
       { title: '6 Regler og instrukser for Promo', href: '/instruks-promo' },
-      { title: '7 Regler og instrukser for bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
-      { title: '8 Regler og instrukser for Index', href: '/instruks-index' },
+      { title: '7 Regler og instrukser for De Eldstes Raad', href: '/instruks-eldste' }, 
+      { title: '8 Regler og instrukser for bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
+      { title: '9 Regler og instrukser for Index', href: '/instruks-index' },
     ]
   },
   {
