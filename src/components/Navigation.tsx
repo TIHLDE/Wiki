@@ -230,6 +230,22 @@ function NavigationGroup({
 
 export const navigation: Array<NavGroup> = [
   {
+    title: 'Vedtekter',
+    links: [
+      { title: '1 TIHLDEs lover', href: '/TIHLDEs-lover' },
+      { title: '2 Styreinstruks for Hovedstyret', href: '/instruks-hovedstyret' },
+      { title: '3 Felles instruks for undergruppeledere', href: '/instruks-undergruppeledere' },
+      { title: '4 Regler og instrukser for Sosialen', href: '/instruks-sosialen' },
+      { title: '5 Regler og instrukser for Næringsliv og Kurs', href: '/instruks-nok' },
+      { title: '6 Regler og instrukser for Promo', href: '/instruks-promo' },
+      { title: '7 Regler og instrukser for De Eldstes Raad', href: '/instruks-eldste' }, 
+      { title: '8 Regler og instrukser for bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
+      { title: '9 Regler og instrukser for Index', href: '/instruks-index' },
+      { title: '10 TIHLDE fondet', href: '/instruks-fondet' },
+      { title: '11 Regler og instrukser for Kiosk og Kontor', href: '/instruks-kok' },
+    ]
+  },
+  {
     title: 'Søknader',
     links: [
       { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
