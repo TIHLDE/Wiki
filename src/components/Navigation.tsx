@@ -254,6 +254,7 @@ export const navigation: Array<NavGroup> = [
     title: 'Retningslinjer',
     links: [
       { title: 'Arrangementer', href: '/arrangementer' },
+      { title: 'Grafisker retningslinjer', href: '/grafisk' },
     ]
   },
   {
