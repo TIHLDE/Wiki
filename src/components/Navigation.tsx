@@ -250,6 +250,13 @@ export const navigation: Array<NavGroup> = [
       { title: 'Andre søknader', href: '/soknader-andre' },
     ]
   },
+  { 
+    title: 'Retningslinjer',
+    links: [
+      { title: 'Arrangementer', href: '/arrangementer' },
+      { title: 'Grafisker retningslinjer', href: '/grafisk' },
+    ]
+  },
   {
     title: 'Vedtekter',
     links: [
