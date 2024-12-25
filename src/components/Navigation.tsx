@@ -239,6 +239,7 @@ export const navigation: Array<NavGroup> = [
       { title: '5 Regler og instrukser for Næringsliv og Kurs', href: '/instruks-nok' },
       { title: '6 Regler og instrukser for Promo', href: '/instruks-promo' },
       { title: '7 Regler og instrukser for bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
+      { title: '8 Regler og instrukser for Index', href: '/instruks-index' },
     ]
   },
   {
