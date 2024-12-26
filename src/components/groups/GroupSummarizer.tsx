@@ -19,20 +19,18 @@ type Group = {
  * @param slug the slug of the group to summarize
  * @constructor
  */
-export async function GroupSummarizer({ group, slug }: | { group: Group, slug: undefined } | { group: undefined, slug: string }) {
-    // Render nothing if no group or slug is provided
-    if (!group && !slug) return <></>;
-    
+export async function GroupSummarizer({ group, slug }: | { group: Group, slug?: undefined } | { group?: undefined, slug: string }) {
     let groupData: Group | undefined = group
     
     // Fetch the group data if only the slug is provided
     if (slug && !group) {
         const response = await fetch(`https://api.tihlde.org/groups/${slug}/`);
-        groupData = await response.json();
+        if (!response.ok) groupData = { name: "Ikke funnet", slug: slug };
+        else groupData = await response.json();
     }
+    
     if (!groupData) return null;
     
     const renderedDescription = (await remark().use(html).process(groupData.description)).toString();
-    
     return <RenderGroupSummary group={groupData} description={renderedDescription} />
 }

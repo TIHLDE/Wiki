@@ -1,6 +1,7 @@
 "use client";
 
 import {Button} from "@/components/mdx";
+import React from "react";
 import {useEffect, useRef, useState} from "react";
 
 type Group = {
@@ -41,24 +42,24 @@ export function RenderGroupSummary({ group, description }: { group: Group, descr
             { group.leader && <div className="mt-2">Leder: <b>{group.leader.first_name} {group.leader.last_name}</b></div> }
             <hr className="my-3" />
 
-            <div>
+            { group.description &&
+            ( <React.Fragment>
                 <div className="h-64 overflow-hidden relative bg-zinc-200 dark:bg-zinc-900 shadow-inner px-4"
-                    ref={descriptionRef}
-                >
-                    {description ? 
+                    ref={descriptionRef} >
+                    {description ?
                         <div dangerouslySetInnerHTML={{__html: description}} /> :
                         <div>Ingen beskrivelse</div>
                     }
                     {isOverflowing && (
-                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-zinc-200 dark:from-zinc-900 to-transparent pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-zinc-200 dark:from-zinc-900 to-transparent pointer-events-none" />
                     )}
                 </div>
-            </div>
-            
-            <br/>
+                <br/>
+            </React.Fragment>
+            )}
             
             <div className="flex flex-row content-center justify-between">
-                <Button target="_blank" href={`https://tihlde.org/grupper/${group.slug}`}>Les mer på gruppesiden</Button>
+                <Button target="_blank" href={`https://tihlde.org/grupper/${group.slug}`}>Les mer</Button>
                 <Button href={`mailto:${group.contact_email}`}>Kontakt {group.name}</Button>
             </div>
         </div>
