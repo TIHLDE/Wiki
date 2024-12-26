@@ -3,15 +3,7 @@
 import {Button} from "@/components/mdx";
 import React from "react";
 import {useEffect, useRef, useState} from "react";
-
-type Group = {
-    name: string; // Name
-    slug: string; // Slug
-    image?: string; // Image
-    contact_email?: string; // Contact email
-    leader?: any; // Leader
-    description?: string; // Description
-};
+import {Group} from "@/lib/group";
 
 /**
  * Renders a summary of a group

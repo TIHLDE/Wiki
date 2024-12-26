@@ -1,15 +1,7 @@
 import {RenderGroupSummary} from "@/components/groups/RenderGroupSummary";
 import {remark} from "remark";
 import html from "remark-html";
-
-type Group = {
-    name: string; // Name
-    slug: string; // Slug
-    image?: string; // Image
-    contact_email?: string; // Contact email
-    leader?: any; // Leader
-    description?: string; // Description
-};
+import {Group} from "@/lib/group";
 
 /**
  * Takes either a json object of all the group information or the slug of a group and returns a
