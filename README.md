@@ -1,8 +1,49 @@
 # TIHLDE WIKI
 
-TIHLDE WIKI is a site built upon a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+Denne dokumentasjonen inndeholder 2 deler:
+1. Norsk beskrivelse av git-prosedyrer som commits, branches, issues etc. som må følges for å holde repositoriet organisert.
+2. En engelsk generalisert quickstart guide for hvordan man faktisk kan begynne å endre på wikien.
+
+## Git prosedyrer
+
+Til den grad hensiktsmessig skal alt foregå på norsk. Dette er for å forbedre leseligheten av repositoriet for brukere som ønsker å utforske diverse endringer. Det er svært verdifullt å skille mellom når vedtekter, retningslinjer og diverse inforamsjon endres på wikien. Ikke-tekniske brukere vil også slite med å forstå endringen om de må begynne å tolke engelske beskrivelser opp mot norsk brødtekst.
+
+### Branches
+Brancher kan være 1 av 4 kategorier og må være etterfulgt med en beskrivelse av hva branchen endrer eller legger til:
+
+**kode/**\
+Alt som omhandler å primært endre noe av programmatisk betydning(eks. styling, komponenter, logikk, biblioteker etc.). I **kode**-brancher bør man minimere endringer av den faktiske brødteksten i wikien.
+```
+git branch kode/informasjonskort-for-undergrupper
+```
+
+**diverse/**\
+Endring av all tekst og informasjon i wikien som *ikke* direkte omhandler vedtekter eller retningslinjer. Slike brancher kan også inkludere endring av sidestruktur og tillegg av mindre tekniske implementeringer som bilder og iframes. Endringene i slike brancher kan utføres vilkårlig av HS medlemmer.
+```
+git branch diverse/sanger-lambo
+```
+
+**retningslinjer/**\
+Endring av all tekst og informasjon som direkte relaterer til "Retningslinjer" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av HS og branchen må ha en underkategori som inndeholder saksnummer og årstall i formatet `saksnr-yy`. Ble en retningslinje vedtatt endret utenfor et HS møte eller som en eventuellsak, viser man dette med symbolet 'symbolet 'd' og datoen for vedtaket i formatet `'d'-dd-mm-yy`.
+```
+git branch retningslinjer/6-24/betalende-arrangementer
+
+git branch retningslinjer/d-02-03-24/grafiske-retningslinjer
+```
+
+**vedtekter/**\
+Endring av all tekst og informasjon som direkte relaterer til "Vedtekter" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av Generalforsamlingen eller være en redaksjonell endring vedtatt av HS. Ved saksbaserte endringer av generalforsamlingen skal formatet være følgende `generalforsamling/saksnr-yy`. Ved redaksjonelle endringer skal det samme formatet som utnyttes ved retningslinjer brukes: `redaksjonell/saksnr-yy` eller `redaksjonell/'d'-dd-mm-yy`.
+```
+git branch vedtekter/generalforsamling/8-24/inaktive-medlemmer
+
+git branch vedtekter/redaksjonell/18-24/oppdatering-av-studienavn
+
+git branch vedtekter/redaksjonell/d-05-09-24/rettelse-skrivefeil
+```
 
 ## Getting started
+TIHLDE WIKI is a site built upon a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+
 
 To get started with this template, first install the npm dependencies:
 
