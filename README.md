@@ -24,7 +24,7 @@ git branch diverse/sanger-lambo
 ```
 
 **retningslinjer/**\
-Endring av all tekst og informasjon som direkte relaterer til "Retningslinjer" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av HS og branchen må ha en underkategori som inndeholder saksnummer og årstall i formatet `saksnr-yy`. Ble en retningslinje vedtatt endret utenfor et HS møte eller som en eventuellsak, viser man dette med symbolet 'symbolet 'd' og datoen for vedtaket i formatet `'d'-dd-mm-yy`.
+Endring av all tekst og informasjon som direkte relaterer til "Retningslinjer" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av HS og branchen må ha en underkategori som inndeholder saksnummer og årstall i formatet `HsSaksnr-yy`. Ble en retningslinje vedtatt endret utenfor et HS møte eller som en eventuellsak, viser man dette med symbolet 'symbolet 'd' og datoen for vedtaket i formatet `'d'-dd-mm-yy`.
 ```
 git branch retningslinjer/6-24/betalende-arrangementer
 
@@ -32,7 +32,7 @@ git branch retningslinjer/d-02-03-24/grafiske-retningslinjer
 ```
 
 **vedtekter/**\
-Endring av all tekst og informasjon som direkte relaterer til "Vedtekter" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av Generalforsamlingen eller være en redaksjonell endring vedtatt av HS. Ved saksbaserte endringer av generalforsamlingen skal formatet være følgende `generalforsamling/saksnr-yy`. Ved redaksjonelle endringer skal det samme formatet som utnyttes ved retningslinjer brukes: `redaksjonell/saksnr-yy` eller `redaksjonell/'d'-dd-mm-yy`.
+Endring av all tekst og informasjon som direkte relaterer til "Vedtekter" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av Generalforsamlingen eller være en redaksjonell endring vedtatt av HS. Ved saksbaserte endringer av generalforsamlingen skal formatet være følgende `generalforsamling/GenforsSaksnr-yy`. Ved redaksjonelle endringer skal det samme formatet som utnyttes ved retningslinjer brukes: `redaksjonell/HsSaksnr-yy` eller `redaksjonell/'d'-dd-mm-yy`.
 ```
 git branch vedtekter/generalforsamling/8-24/inaktive-medlemmer
 
@@ -40,6 +40,9 @@ git branch vedtekter/redaksjonell/18-24/oppdatering-av-studienavn
 
 git branch vedtekter/redaksjonell/d-05-09-24/rettelse-skrivefeil
 ```
+
+### Commits
+
 
 ## Getting started
 TIHLDE WIKI is a site built upon a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
