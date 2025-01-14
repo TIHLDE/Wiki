@@ -8,7 +8,7 @@ Denne dokumentasjonen inndeholder 2 deler:
 
 Til den grad hensiktsmessig skal alt foregå på norsk. Dette er for å forbedre leseligheten av repositoriet for brukere som ønsker å utforske diverse endringer. Det er svært verdifullt å skille mellom når vedtekter, retningslinjer og diverse inforamsjon endres på wikien. Ikke-tekniske brukere vil også slite med å forstå endringen om de må begynne å tolke engelske beskrivelser opp mot norsk brødtekst.
 
-### Branches
+### Branches (eksludert issue-branches)
 Brancher kan være 1 av 4 kategorier og må være etterfulgt med en beskrivelse av hva branchen endrer eller legger til:
 
 **kode/**\
@@ -42,7 +42,17 @@ git branch vedtekter/redaksjonell/d-05-09-24/rettelse-skrivefeil
 ```
 
 ### Commits
+Alle commits må ikke være på norsk(typ autogenererte versjonsoppdateringer og merge requests), men alt annet som kan være av verdi for "ikke-tekniske" TIHLDE medlemmer bør beskrives med fornuftig norsk. For mindre endringer kan beskrvelsen være enkel og objektiv, men for retningslinjer og vedtekter kan det være lønnsomt med en kort oppsummering om *hvorfor* endringen ble gjennomført.
+```
+git commit -m "La til wiki-side for økonomiske søknader"
 
+git commit -m "Gruppeoversiktene henter nå automatisk gruppebeskrivelse fra TIHLDEs nettside"
+
+git commit -m "Vedtatt at stjeling fra kiosken er nå straffbart"
+```
+
+### Issues
+Issues trenger ikke noe spesifikt format, men de må ha en konsis tittel ettersom dette vil bli et branchnavn.
 
 ## Getting started
 TIHLDE WIKI is a site built upon a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
