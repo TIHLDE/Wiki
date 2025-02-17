@@ -257,6 +257,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Arrangementer', href: '/arrangementer' },
       { title: 'Grafisker retningslinjer', href: '/grafisk' },
+      { title: 'Bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
     ]
   },
   {
@@ -269,10 +270,9 @@ export const navigation: Array<NavGroup> = [
       { title: '5 Regler og instrukser for Næringsliv og Kurs', href: '/instruks-nok' },
       { title: '6 Regler og instrukser for Promo', href: '/instruks-promo' },
       { title: '7 Regler og instrukser for De Eldstes Raad', href: '/instruks-eldste' }, 
-      { title: '8 Regler og instrukser for bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
-      { title: '9 Regler og instrukser for Index', href: '/instruks-index' },
-      { title: '10 TIHLDE fondet', href: '/instruks-fondet' },
-      { title: '11 Regler og instrukser for Kiosk og Kontor', href: '/instruks-kok' },
+      { title: '8 Regler og instrukser for Index', href: '/instruks-index' },
+      { title: '9 TIHLDE fondet', href: '/instruks-fondet' },
+      { title: '10 Regler og instrukser for Kiosk og Kontor', href: '/instruks-kok' },
     ]
   },
 ]
