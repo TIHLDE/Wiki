@@ -258,6 +258,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Arrangementer', href: '/arrangementer' },
       { title: 'Grafisker retningslinjer', href: '/grafisk' },
       { title: 'Bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
+      { title: 'Komiteer', href: '/retningslinjer-komiteer'}
     ]
   },
   {
