@@ -41,10 +41,10 @@ export function Address() {
                             TIHLDE
                         </p>
                         <p>
-                            Sem Sælands vei 7-9
+                            3. etasje, Holtermannsveien 2
                         </p>
                         <p>
-                            7034 Trondheim
+                            7030 Trondheim
                         </p>
                     </div>
                 </div>
