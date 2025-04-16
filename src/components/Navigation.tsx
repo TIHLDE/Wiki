@@ -256,11 +256,12 @@ export const navigation: Array<NavGroup> = [
   { 
     title: 'Retningslinjer',
     links: [
-      { title: 'Arrangementer', href: '/arrangementer' },
-      { title: 'Grafisker retningslinjer', href: '/grafisk' },
-      { title: 'Bruk av TIHLDE-kontoret', href: '/instruks-kontoret' },
-      { title: 'Komiteer', href: '/retningslinjer-komiteer'},
-      { title: 'Interessegrupper', href: '/retningslinjer-interessegrupper'},
+      { title: 'Hva er retningslinjer?', href: '/retningslinjer' },
+      { title: 'Arrangementer', href: '/retningslinjer/arrangementer' },
+      { title: 'Grafisker retningslinjer', href: '/retningslinjer/grafisk' },
+      { title: 'Bruk av TIHLDE-kontoret', href: '/retningslinjer/kontoret' },
+      { title: 'Komiteer', href: '/retningslinjer/komiteer'},
+      { title: 'Interessegrupper', href: '/retningslinjer/interessegrupper'},
     ]
   },
   {
