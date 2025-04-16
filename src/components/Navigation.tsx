@@ -250,6 +250,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
       { title: 'Andre søknader', href: '/soknader-andre' },
+      { title: 'Melde sak til HS', href: '/soknader-sak-til-hs'}
     ]
   },
   { 
