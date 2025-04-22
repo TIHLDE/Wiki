@@ -269,6 +269,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Hva er vedtekter?', href: '/vedtekter' },
       { title: '1 TIHLDEs lover', href: '/vedtekter/TIHLDEs-lover' },
+      { title: '2 TIHLDEs instrukser', href: '/vedtekter/TIHLDEs-instrukser'},
       { title: '2 Styreinstruks for Hovedstyret', href: '/vedtekter/instruks-hovedstyret' },
       { title: '3 Felles instruks for undergruppeledere', href: '/vedtekter/instruks-undergruppeledere' },
       { title: '4 Regler og instrukser for Sosialen', href: '/vedtekter/instruks-sosialen' },
