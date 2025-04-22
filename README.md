@@ -8,8 +8,8 @@ Denne dokumentasjonen inndeholder 2 deler:
 
 Til den grad hensiktsmessig skal alt foregå på norsk. Dette er for å forbedre leseligheten av repositoriet for brukere som ønsker å utforske diverse endringer. Det er svært verdifullt å skille mellom når vedtekter, retningslinjer og diverse inforamsjon endres på wikien. Ikke-tekniske brukere vil også slite med å forstå endringen om de må begynne å tolke engelske beskrivelser opp mot norsk brødtekst.
 
-### Branches (eksludert issue-branches)
-Brancher kan være 1 av 4 kategorier og må være etterfulgt med en beskrivelse av hva branchen endrer eller legger til:
+### Navngivning av Branches / Pull-requests (eksludert issue-branches)
+Brancher/PRs kan være 1 av 4 kategorier og må være etterfulgt med en beskrivelse av hva branchen endrer eller legger til:
 
 **kode/**\
 Alt som omhandler å primært endre noe av programmatisk betydning(eks. styling, komponenter, logikk, biblioteker etc.). I **kode**-brancher bør man minimere endringer av den faktiske brødteksten i wikien.
@@ -32,9 +32,12 @@ git branch retningslinjer/d-02-03-24/grafiske-retningslinjer
 ```
 
 **vedtekter/**\
-Endring av all tekst og informasjon som direkte relaterer til "Vedtekter" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av Generalforsamlingen eller være en redaksjonell endring vedtatt av HS. Ved saksbaserte endringer av generalforsamlingen skal formatet være følgende `generalforsamling/GenforsSaksnr-yy`. Ved redaksjonelle endringer skal det samme formatet som utnyttes ved retningslinjer brukes: `redaksjonell/HsSaksnr-yy` eller `redaksjonell/'d'-dd-mm-yy`.
+Endring av all tekst og informasjon som direkte relaterer til "Vedtekter" siden på wikien. Endringer i slike brancher *må* ha blitt vedtatt av Generalforsamlingen eller være en redaksjonell endring vedtatt av HS. Ved endringer gjennomført under generalforsamlinger skal formatet være følgende `generalforsamling/Tåå` (Vår: V eller høst: H symboliseres her med T). Er endringene gjørt ved en ekstraordinær skal branchen navngis med `generalforsamling/Tåå-ekstraordinær`.
+Ved redaksjonelle endringer skal det samme formatet som utnyttes ved retningslinjer brukes: `redaksjonell/HsSaksnr-yy` eller `redaksjonell/'d'-dd-mm-yy`.
 ```
-git branch vedtekter/generalforsamling/8-24/inaktive-medlemmer
+git branch vedtekter/generalforsamling/V25
+
+git branch vedtekter/generalforsamling/V25-ekstraordinær
 
 git branch vedtekter/redaksjonell/18-24/oppdatering-av-studienavn
 
