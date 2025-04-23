@@ -258,7 +258,6 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Hva er retningslinjer?', href: '/retningslinjer' },
       { title: 'Arrangementer', href: '/retningslinjer/arrangementer' },
-      { title: 'Grafisker retningslinjer', href: '/retningslinjer/grafisk' },
       { title: 'Bruk av TIHLDE-kontoret', href: '/retningslinjer/kontoret' },
       { title: 'Komiteer', href: '/retningslinjer/komiteer'},
       { title: 'Interessegrupper', href: '/retningslinjer/interessegrupper'},
@@ -269,15 +268,8 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Hva er vedtekter?', href: '/vedtekter' },
       { title: '1 TIHLDEs lover', href: '/vedtekter/TIHLDEs-lover' },
-      { title: '2 Styreinstruks for Hovedstyret', href: '/vedtekter/instruks-hovedstyret' },
-      { title: '3 Felles instruks for undergruppeledere', href: '/vedtekter/instruks-undergruppeledere' },
-      { title: '4 Regler og instrukser for Sosialen', href: '/vedtekter/instruks-sosialen' },
-      { title: '5 Regler og instrukser for Næringsliv og Kurs', href: '/vedtekter/instruks-nok' },
-      { title: '6 Regler og instrukser for Promo', href: '/vedtekter/instruks-promo' },
-      { title: '7 Regler og instrukser for De Eldstes Raad', href: '/vedtekter/instruks-eldste' }, 
-      { title: '8 Regler og instrukser for Index', href: '/vedtekter/instruks-index' },
-      { title: '9 TIHLDE fondet', href: '/vedtekter/instruks-fondet' },
-      { title: '10 Regler og instrukser for Kiosk og Kontor', href: '/vedtekter/instruks-kok' },
+      { title: '2 TIHLDEs instrukser', href: '/vedtekter/TIHLDEs-instrukser'},
+      { title: '3 TIHLDEs logo', href: '/vedtekter/TIHLDEs-logo'},
     ]
   },
 ]
