@@ -259,6 +259,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Hva er retningslinjer?', href: '/retningslinjer' },
       { title: 'Arrangementer', href: '/retningslinjer/arrangementer' },
       { title: 'Bruk av TIHLDE-kontoret', href: '/retningslinjer/kontoret' },
+      { title: 'Utlån av TIHLDEs utstyr', href: '/retningslinjer/utlaan-utstyr'},
       { title: 'Komiteer', href: '/retningslinjer/komiteer'},
       { title: 'Interessegrupper', href: '/retningslinjer/interessegrupper'},
     ]
