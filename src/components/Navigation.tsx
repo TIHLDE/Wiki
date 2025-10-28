@@ -243,6 +243,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'TIHLDEs logo', href: '/TIHLDEs-logo' },
       { title: 'TIHLDE-eden', href: '/TIHLDE-eden' },
       { title: 'Sanger', href: '/sanger' },
+      { title: 'Info til nye studenter', href: '/ny-student' },
     ]
   },
   {
