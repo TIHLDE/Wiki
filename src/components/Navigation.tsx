@@ -234,6 +234,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Kontakt oss', href: '/kontakt' },
       { title: 'TIHLDEs struktur', href: '/struktur' },
+      { title: 'Tillitsvalgte i TIHLDE', href: '/tillitsvalgte'},
     ]
   },
   {
