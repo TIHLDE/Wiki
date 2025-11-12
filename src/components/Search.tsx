@@ -1,12 +1,13 @@
 'use client'
 
-import {
+import React, {
   forwardRef,
   Fragment,
   Suspense,
   useCallback,
   useEffect,
   useId,
+  useImperativeHandle,
   useRef,
   useState,
 } from 'react'
@@ -267,21 +268,25 @@ function SearchResults({
   )
 }
 
-const SearchInput = forwardRef<
-  React.ElementRef<'input'>,
-  {
-    autocomplete: Autocomplete
-    autocompleteState: AutocompleteState<Result> | EmptyObject
-    onClose: () => void
-  }
->(function SearchInput({ autocomplete, autocompleteState, onClose }, inputRef) {
-  let inputProps = autocomplete.getInputProps({ inputElement: null })
+const SearchInput = forwardRef<HTMLInputElement, {
+  autocomplete: Autocomplete
+  autocompleteState: AutocompleteState<Result> | EmptyObject
+  onClose: () => void
+}>(function SearchInput({ autocomplete, autocompleteState, onClose }, inputRef) {
+  const localRef = useRef<HTMLInputElement>(null)
+
+  // Tell TS this will be non-null when React applies the handle
+  useImperativeHandle(inputRef, () => localRef.current!, [])
+
+  const inputProps = autocomplete.getInputProps({
+    inputElement: localRef.current,
+  })
 
   return (
     <div className="group relative flex h-12">
       <SearchIcon className="pointer-events-none absolute left-3 top-0 h-full w-5 stroke-zinc-500" />
       <input
-        ref={inputRef}
+        ref={localRef}
         data-autofocus
         className={clsx(
           'flex-auto appearance-none bg-transparent pl-10 text-zinc-900 outline-none placeholder:text-zinc-500 focus:w-full focus:flex-none sm:text-sm dark:text-white [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden',
