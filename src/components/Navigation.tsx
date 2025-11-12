@@ -248,6 +248,12 @@ export const navigation: Array<NavGroup> = [
     ]
   },
   {
+    title: 'Generell FAQ',
+    links: [
+      { title: 'Tilgang til kontoret', href: '/tilgang-til-kontoret'}
+    ]
+  },
+  {
     title: 'Søknader',
     links: [
       { title: 'Økonomiske søknader', href: '/soknader-okonomisk' },
