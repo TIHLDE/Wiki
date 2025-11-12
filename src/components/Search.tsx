@@ -162,12 +162,12 @@ function HighlightQuery({ text, query }: { text: string; query: string }) {
 }
 
 function SearchResult({
-                        result,
-                        resultIndex,
-                        autocomplete,
-                        collection,
-                        query,
-                      }: {
+  result,
+  resultIndex,
+  autocomplete,
+  collection,
+  query,
+}: {
   result: Result
   resultIndex: number
   autocomplete: Autocomplete
@@ -229,10 +229,10 @@ function SearchResult({
 }
 
 function SearchResults({
-                         autocomplete,
-                         query,
-                         collection,
-                       }: {
+  autocomplete,
+  query,
+  collection,
+}: {
   autocomplete: Autocomplete
   query: string
   collection: AutocompleteCollection<Result>
@@ -321,10 +321,10 @@ const SearchInput = forwardRef<HTMLInputElement, {
 })
 
 function SearchDialog({
-                        open,
-                        setOpen,
-                        className,
-                      }: {
+  open,
+  setOpen,
+  className,
+}: {
   open: boolean
   setOpen: (open: boolean) => void
   className?: string
@@ -432,7 +432,7 @@ function useSearchProps() {
       setOpen: useCallback(
         (open: boolean) => {
           let { width = 0, height = 0 } =
-          buttonRef.current?.getBoundingClientRect() ?? {}
+            buttonRef.current?.getBoundingClientRect() ?? {}
           if (!open || (width !== 0 && height !== 0)) {
             setOpen(open)
           }
