@@ -240,7 +240,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Historie og diverse',
     links: [
-      { title: 'Ridderorden', href: '/riddere' },
+      { title: 'Ridderorden', href: '/ridderorden' },
       { title: 'TIHLDEs logo', href: '/TIHLDEs-logo' },
       { title: 'TIHLDE-eden', href: '/TIHLDE-eden' },
       { title: 'Sanger', href: '/sanger' },
