@@ -11,7 +11,7 @@ import {
 } from 'react'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
-import { create } from 'zustand'
+import create from 'zustand'
 
 import { Tag } from '@/components/Tag'
 
