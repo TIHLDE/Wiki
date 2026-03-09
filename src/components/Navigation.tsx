@@ -271,6 +271,7 @@ export const navigation: Array<NavGroup> = [
       { title: 'Utlån av TIHLDEs utstyr', href: '/retningslinjer/utlaan-utstyr'},
       { title: 'Komiteer', href: '/retningslinjer/komiteer'},
       { title: 'Interessegrupper', href: '/retningslinjer/interessegrupper'},
+      { title: 'Fordeling av ekstern pengestøtte', href: '/retningslinjer/ekstern-pengestotte'},
     ]
   },
   {
