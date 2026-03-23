@@ -16,7 +16,7 @@ export async function GroupSummarizer({ group, slug }: | { group: Group, slug?: 
     
     // Fetch the group data if only the slug is provided
     if (slug && !group) {
-        const response = await fetch(`https://api.tihlde.org/groups/${slug}/`);
+        const response = await fetch(`https://api.tihlde.org/groups/${slug}/`, { cache: "no-store" });
         if (!response.ok) groupData = { name: "Ikke funnet", slug: slug };
         else groupData = await response.json();
     }
