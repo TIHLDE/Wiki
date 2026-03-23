@@ -1,8 +1,11 @@
 import {GroupSummarizer} from "../../components/groups/GroupSummarizer";
 import {GroupTypeSummarizer} from "../../components/groups/GroupTypeSummarizer";
+import {OrgChart} from "../../components/groups/OrgChart";
 
 # TIHLDEs struktur
 Strukturen er hierarkisk og er listet fra øverste til laveste nivå.
+
+<OrgChart />
 
 ## Generalforsamlingen
 
@@ -33,10 +36,21 @@ ikke begrensninger på egen struktur. Komiteer er derfor mer fleksible enn under
 
 <GroupTypeSummarizer type="COMMITTEE" />
 
+## Idrettslag
+Idrettslag er grupper for medlemmer med felles interesse for idrett og aktivitet.
+
+<GroupTypeSummarizer type="SPORTSTEAM" />
+
 ## Interessegrupper
 Interessegrupper er en uformell samling av medlemmer som har en felles interesse.
 
-<GroupTypeSummarizer type="INTERESTGROUP" />
+### Gruppe
+
+<GroupTypeSummarizer type="INTERESTGROUP" subtype="GRUPPE" />
+
+### Idrettsgruppe
+
+<GroupTypeSummarizer type="INTERESTGROUP" subtype="IDRETTSGRUPPE" />
 
 ## De Eldstes Raad
 De Eldste Raad er et tilbud til alle som har holdt et verv i TIHLDEs hovedstyre og Riddere av 
