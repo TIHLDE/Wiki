@@ -250,7 +250,8 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'Generell FAQ',
     links: [
-      { title: 'Tilgang til kontoret', href: '/tilgang-til-kontoret'}
+      { title: 'Tilgang til kontoret', href: '/tilgang-til-kontoret'},
+      { title: 'Melde oppdrag til Promo', href: '/melde-oppdrag-til-promo'}
     ]
   },
   {
