@@ -40,7 +40,7 @@ export default function Sectionizer({ children, startValues = [1, 1, 1] }: { chi
     const currentSections = [...actualStartValues]
 
     const sectionizedChildren = React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
+        if (React.isValidElement<{ children?: React.ReactNode }>(child)) {
             // If the child is a heading2 element as its automcatically compiled to a function instead of a string
             if (typeof child.type === "function") {
                 currentSections[0] += 1;
@@ -51,7 +51,7 @@ export default function Sectionizer({ children, startValues = [1, 1, 1] }: { chi
                 return (
                     <React.Fragment>
                         <hr />
-                        {React.cloneElement(child as React.ReactElement, { children: `§${currentSections[0]} ${child.props.children}` })}
+                        {React.cloneElement(child as React.ReactElement<{ children?: React.ReactNode }>, { children: `§${currentSections[0]} ${child.props.children}` })}
                     </React.Fragment>
                 );
             }
@@ -60,7 +60,7 @@ export default function Sectionizer({ children, startValues = [1, 1, 1] }: { chi
                 currentSections[1] += 1;
                 currentSections[2] = actualStartValues[2]
                 
-                return React.cloneElement(child as React.ReactElement, {
+                return React.cloneElement(child as React.ReactElement<{ children?: React.ReactNode }>, {
                     children: '§' + currentSections[0] + '.' + currentSections[1] + ' ' + child.props.children
                 });
             }
@@ -68,7 +68,7 @@ export default function Sectionizer({ children, startValues = [1, 1, 1] }: { chi
             if (child.type === "h4") {
                 currentSections[2] += 1;
                 
-                return React.cloneElement(child as React.ReactElement, {
+                return React.cloneElement(child as React.ReactElement<{ children?: React.ReactNode }>, {
                     children: '§' + currentSections[0] + '.' + currentSections[1] + '.' + currentSections[2] + ' ' + child.props.children
                 });
             }
