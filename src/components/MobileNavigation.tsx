@@ -53,14 +53,17 @@ function MobileNavigationDialog({
 }) {
   let pathname = usePathname()
   let searchParams = useSearchParams()
-  let initialPathname = useRef(pathname).current
-  let initialSearchParams = useRef(searchParams).current
+  let initialPathname = useRef(pathname)
+  let initialSearchParams = useRef(searchParams)
 
   useEffect(() => {
-    if (pathname !== initialPathname || searchParams !== initialSearchParams) {
+    if (
+      pathname !== initialPathname.current ||
+      searchParams !== initialSearchParams.current
+    ) {
       close()
     }
-  }, [pathname, searchParams, close, initialPathname, initialSearchParams])
+  }, [pathname, searchParams, close])
 
   function onClickDialog(event: React.MouseEvent<HTMLDivElement>) {
     if (!(event.target instanceof HTMLElement)) {

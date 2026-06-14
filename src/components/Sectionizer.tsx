@@ -33,7 +33,7 @@ import React from "react";
 export default function Sectionizer({ children, startValues = [1, 1, 1] }: { children: React.ReactNode, startValues?: number[] }) {
     
     // Supports h2 to h4
-    const actualStartValues = startValues;
+    const actualStartValues = [...startValues];
     for (let i = 0; i < 3; i++) {
         actualStartValues[i] -= 1;
     }

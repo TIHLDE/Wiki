@@ -1,5 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 import { useTheme } from 'next-themes'
+
+const emptySubscribe = () => () => {}
+
+// Hydration-safe "mounted" flag without setState-in-effect: the server snapshot
+// is `false`, and after hydration the client snapshot resolves to `true`.
+function useHasMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  )
+}
 
 function SunIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -24,11 +36,7 @@ function MoonIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export function ThemeToggle() {
   let { resolvedTheme, setTheme } = useTheme()
   let otherTheme = resolvedTheme === 'dark' ? 'light' : 'dark'
-  let [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  let mounted = useHasMounted()
 
   return (
     <button

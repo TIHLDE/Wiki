@@ -80,8 +80,8 @@ export function Heading<Level extends 2 | 3>({
   level?: Level
   anchor?: boolean
 }) {
-  level = level ?? (2 as Level)
-  let Component = `h${level}` as 'h2' | 'h3'
+  let resolvedLevel = level ?? (2 as Level)
+  let Component = `h${resolvedLevel}` as 'h2' | 'h3'
   let ref = useRef<HTMLHeadingElement>(null)
   let registerHeading = useSectionStore((s) => s.registerHeading)
 
@@ -91,7 +91,7 @@ export function Heading<Level extends 2 | 3>({
   })
 
   useEffect(() => {
-    if (level === 2) {
+    if (resolvedLevel === 2) {
       registerHeading({ id: props.id, ref, offsetRem: tag || label ? 8 : 6 })
     }
   })

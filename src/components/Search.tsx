@@ -1,15 +1,14 @@
 'use client'
 
 import React, {
-  forwardRef,
   Fragment,
   Suspense,
   useCallback,
   useEffect,
   useId,
-  useImperativeHandle,
   useRef,
   useState,
+  useSyncExternalStore,
 } from 'react'
 import Highlighter from 'react-highlight-words'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
@@ -268,25 +267,28 @@ function SearchResults({
   )
 }
 
-const SearchInput = forwardRef<HTMLInputElement, {
+function SearchInput({
+  autocomplete,
+  autocompleteState,
+  onClose,
+  inputElement,
+  setInputElement,
+}: {
   autocomplete: Autocomplete
   autocompleteState: AutocompleteState<Result> | EmptyObject
   onClose: () => void
-}>(function SearchInput({ autocomplete, autocompleteState, onClose }, inputRef) {
-  const localRef = useRef<HTMLInputElement>(null)
-
-  // Tell TS this will be non-null when React applies the handle
-  useImperativeHandle(inputRef, () => localRef.current!, [])
-
+  inputElement: HTMLInputElement | null
+  setInputElement: (element: HTMLInputElement | null) => void
+}) {
   const inputProps = autocomplete.getInputProps({
-    inputElement: localRef.current,
+    inputElement,
   })
 
   return (
     <div className="group relative flex h-12">
       <SearchIcon className="pointer-events-none absolute left-3 top-0 h-full w-5 stroke-zinc-500" />
       <input
-        ref={localRef}
+        ref={setInputElement}
         data-autofocus
         className={clsx(
           'flex-auto appearance-none bg-transparent pl-10 text-zinc-900 outline-none placeholder:text-zinc-500 focus:w-full focus:flex-none sm:text-sm dark:text-white [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [&::-webkit-search-results-button]:hidden [&::-webkit-search-results-decoration]:hidden',
@@ -318,7 +320,7 @@ const SearchInput = forwardRef<HTMLInputElement, {
       )}
     </div>
   )
-})
+}
 
 function SearchDialog({
   open,
@@ -331,7 +333,7 @@ function SearchDialog({
 }) {
   let formRef = useRef<React.ElementRef<'form'>>(null)
   let panelRef = useRef<React.ElementRef<'div'>>(null)
-  let inputRef = useRef<React.ElementRef<typeof SearchInput>>(null)
+  let [inputElement, setInputElement] = useState<HTMLInputElement | null>(null)
   let { autocomplete, autocompleteState } = useAutocomplete({
     close() {
       setOpen(false)
@@ -386,11 +388,12 @@ function SearchDialog({
             <form
               ref={formRef}
               {...autocomplete.getFormProps({
-                inputElement: inputRef.current,
+                inputElement,
               })}
             >
               <SearchInput
-                ref={inputRef}
+                inputElement={inputElement}
+                setInputElement={setInputElement}
                 autocomplete={autocomplete}
                 autocompleteState={autocompleteState}
                 onClose={() => setOpen(false)}
@@ -443,15 +446,22 @@ function useSearchProps() {
   }
 }
 
-export function Search() {
-  let [modifierKey, setModifierKey] = useState<string>()
-  let { buttonProps, dialogProps } = useSearchProps()
+const emptySubscribe = () => () => {}
 
-  useEffect(() => {
-    setModifierKey(
-      /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? '⌘' : 'Ctrl ',
-    )
-  }, [])
+// Resolve the keyboard shortcut hint without setState-in-effect. The value
+// depends on `navigator.platform`, so the server snapshot is `undefined` and
+// the client snapshot resolves after hydration.
+function useModifierKey() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? '⌘' : 'Ctrl '),
+    () => undefined,
+  )
+}
+
+export function Search() {
+  let modifierKey = useModifierKey()
+  let { buttonProps, dialogProps } = useSearchProps()
 
   return (
     <div className="hidden lg:block lg:max-w-md lg:flex-auto">
