@@ -144,7 +144,9 @@ function CodePanel({
 }) {
   let child = Children.only(children)
 
-  if (isValidElement(child)) {
+  if (
+    isValidElement<{ tag?: string; label?: string; code?: string }>(child)
+  ) {
     tag = child.props.tag ?? tag
     label = child.props.label ?? label
     code = child.props.code ?? code
@@ -200,7 +202,11 @@ function CodeGroupHeader({
                   : 'border-transparent text-zinc-400 hover:text-zinc-300',
               )}
             >
-              {getPanelTitle(isValidElement(child) ? child.props : {})}
+              {getPanelTitle(
+                isValidElement<{ title?: string; language?: string }>(child)
+                  ? child.props
+                  : {},
+              )}
             </Tab>
           ))}
         </TabList>
@@ -232,7 +238,7 @@ function CodeGroupPanels({
 
 function usePreventLayoutShift() {
   let positionRef = useRef<HTMLElement>(null)
-  let rafRef = useRef<number>()
+  let rafRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     return () => {
@@ -313,7 +319,11 @@ export function CodeGroup({
 }: React.ComponentPropsWithoutRef<typeof CodeGroupPanels> & { title: string }) {
   let languages =
     Children.map(children, (child) =>
-      getPanelTitle(isValidElement(child) ? child.props : {}),
+      getPanelTitle(
+        isValidElement<{ title?: string; language?: string }>(child)
+          ? child.props
+          : {},
+      ),
     ) ?? []
   let tabGroupProps = useTabGroupProps(languages)
   let hasTabs = Children.count(children) > 1

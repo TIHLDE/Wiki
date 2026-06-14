@@ -35,6 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# generated search index data
+src/mdx/.search-data.json
+
 # JetBrains
 .idea/
 wiki.iml
