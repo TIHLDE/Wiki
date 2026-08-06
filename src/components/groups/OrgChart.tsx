@@ -1,4 +1,4 @@
-import { getGroup, getGroupsByType, Group } from "@/lib/group";
+import { getGroup, getGroupsByType, Group, interestSubtype } from "@/lib/group";
 import { OrgChartTree, type OrgChartData, type OrgNode } from "./OrgChartTree";
 
 function toNode(group: Group): OrgNode {
@@ -23,7 +23,10 @@ export async function OrgChart() {
   );
 
   const interestGroupsBySubtype = interestGroups.reduce<Record<string, Group[]>>((acc, group) => {
-    const subtype = group.subtype ?? "UKJENT";
+    // A group without a subtype is a gruppe, not a third category — see
+    // interestSubtype. Bucketing it under "UKJENT" dropped it off the chart
+    // entirely, because only the two known buckets are rendered.
+    const subtype = interestSubtype(group);
     if (!acc[subtype]) {
       acc[subtype] = [];
     }
