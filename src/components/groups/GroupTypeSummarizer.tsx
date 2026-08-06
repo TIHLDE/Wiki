@@ -1,5 +1,5 @@
 import {GroupSummarizer} from "@/components/groups/GroupSummarizer";
-import {Group} from "@/lib/group";
+import {getGroupsByType, Group} from "@/lib/group";
 
 
 /**
@@ -10,16 +10,9 @@ import {Group} from "@/lib/group";
  * @constructor
  */
 export async function GroupTypeSummarizer({ type, subtype }: { type: string; subtype?: string }) {
-    // Fetch the groups of the type
-    const query = new URLSearchParams({ type });
-    if (subtype) {
-        query.set("subtype", subtype);
-    }
+    const groups = await getGroupsByType(type, subtype);
 
-    const response = await fetch(`https://api.tihlde.org/groups/?${query.toString()}`, { cache: "no-store" });
-    const groups: Array<Group> = await response.json();
-    
-    if (!groups) return null;
+    if (!groups.length) return null;
 
     return (
         <div className="grid grid-cols-1 gap-x-12 gap sm:grid-cols-1 lg:grid-cols-2">
