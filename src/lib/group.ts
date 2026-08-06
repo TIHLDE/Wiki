@@ -86,6 +86,19 @@ export async function getGroup(slug: string): Promise<Group | null> {
 }
 
 /**
+ * Which of the two interest-group categories a group belongs to.
+ *
+ * "Grupper" is the catch-all, straight from the definition further down the
+ * struktur page: a group that cannot be defined as an idrettsgruppe or an
+ * idrettslag is a gruppe. So a missing subtype is not an unknown third
+ * category — it is a gruppe, and treating it as unknown drops the group off
+ * the page entirely.
+ */
+export function interestSubtype(group: Pick<Group, "subtype">): string {
+  return group.subtype === "IDRETTSGRUPPE" ? "IDRETTSGRUPPE" : "GRUPPE";
+}
+
+/**
  * Groups of one type, newest API shape mapped to the one the components use.
  *
  * `subtype` narrows the result here rather than in the query string: Photon's
@@ -103,7 +116,9 @@ export async function getGroupsByType(
   if (!res.ok) return [];
 
   const all = (await res.json()) as PhotonGroup[];
-  const groups = subtype ? all.filter((g) => g.subtype === subtype) : all;
+  const groups = subtype
+    ? all.filter((g) => interestSubtype(g) === subtype)
+    : all;
 
   return Promise.all(
     groups.map(async (g) => toGroup(g, await fetchLeader(g.slug))),
