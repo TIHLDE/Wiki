@@ -48,7 +48,7 @@ export function RenderGroupSummary({ group, description }: { group: Group, descr
                 
                 <div className="flex flex-col">
                     <h1 className="m-0 p-0">{group.name}</h1>
-                    { group.leader && <div className="m-0">Leder: <b>{group.leader.first_name} {group.leader.last_name}</b></div> }
+                    { group.leader && <div className="m-0">Leder: <b>{group.leader.name}</b></div> }
                 </div>
             </div>
             
