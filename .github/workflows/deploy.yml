@@ -26,5 +26,7 @@ jobs:
     deploy:
         needs: build
         uses: TIHLDE/tihlde-workflows/.github/workflows/_notify_deploy.yml@main
+        with:
+          deploy_url: "https://deploy-king.tihlde.org/deploy"
         secrets:
             DEPLOY_RECEIVER_TOKEN: ${{ secrets.DEPLOY_RECEIVER_TOKEN }}
