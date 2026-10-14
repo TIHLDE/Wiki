@@ -1,0 +1,30 @@
+name: 'build -> push -> deploy'
+
+# Deploy trigges av hver push til main; hver push bygger, pusher og
+# deployer containeren. Ingen release-tags lenger.
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+# En nyere push gjør en pågående bygg/deploy overflødig — avbryt den.
+concurrency:
+    group: ${{ github.workflow }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        permissions:
+            contents: read
+            packages: write
+        uses: TIHLDE/tihlde-workflows/.github/workflows/_ci_ghcr.yml@main
+        with:
+            context: .
+            dockerfile: ./Dockerfile
+
+    deploy:
+        needs: build
+        uses: TIHLDE/tihlde-workflows/.github/workflows/_notify_deploy.yml@main
+        secrets:
+            DEPLOY_RECEIVER_TOKEN: ${{ secrets.DEPLOY_RECEIVER_TOKEN }}

@@ -1,0 +1,11 @@
+services:
+  wiki:
+    build: .
+    image: wiki
+    ports:
+      - "3000:3000"
+    environment:
+      # Points group-data fetches at Photon; defaults to
+      # https://photon.tihlde.org/api when unset.
+      - PHOTON_API=${PHOTON_API:-}
+    restart: unless-stopped
