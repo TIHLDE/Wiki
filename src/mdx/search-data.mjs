@@ -36,6 +36,7 @@ function excludeObjectExpressions(tree) {
 function extractSections() {
   return (tree, { sections }) => {
     slugify.reset()
+    let h2Hash = null
     visit(tree, (node) => {
       let isHeading = node.type === 'heading'
       let isParagraph = node.type === 'paragraph'
@@ -46,12 +47,14 @@ function extractSections() {
 
       if (isHeading || isParagraph || isTextComponent) {
         let content = toString(excludeObjectExpressions(node))
-        if (isHeading && node.depth <= 2) {
-          let hash = slugify(content)
-          sections.push([content, hash, []])
+        if (isHeading && node.depth <= 3) {
+          // h3 headings get no id when rendered, so they link to the h2 above.
+          if (node.depth === 1) h2Hash = null
+          if (node.depth === 2) h2Hash = slugify(content)
+          sections.push([content, h2Hash, []])
         } else {
           if (sections.length === 0) {
-            sections.push([content, '_section', []])
+            sections.push(['', null, [content]])
           } else {
             sections.at(-1)?.[2].push(content)
           }
@@ -186,7 +189,7 @@ export function generateSearchData() {
         (directory && directory !== '.'
           ? path.basename(directory)
           : path.basename(file, path.extname(file)))
-      sections.push([fallback, '_section', []])
+      sections.push([fallback, null, []])
     }
 
     let { importMap, used } = parseImportsAndUsages(mdx)

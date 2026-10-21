@@ -19,3 +19,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::highlight(search-term) {
+  background-color: theme('colors.yellow.200');
+  color: theme('colors.zinc.900');
+}

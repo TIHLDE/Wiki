@@ -22,6 +22,7 @@ import { Dialog, DialogPanel, DialogBackdrop } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { navigation } from '@/components/Navigation'
+import { highlightSearchTermAfterNavigation } from '@/lib/highlightSearchTerm'
 import { type Result } from '@/mdx/search.mjs'
 
 type EmptyObject = Record<string, never>
@@ -40,19 +41,28 @@ function useAutocomplete({ close }: { close: () => void }) {
     AutocompleteState<Result> | EmptyObject
   >({})
 
-  function navigate({ itemUrl }: { itemUrl?: string }) {
+  function select({
+    itemUrl,
+    item,
+    state,
+    setQuery,
+    setIsOpen,
+  }: {
+    itemUrl?: string
+    item: Result
+    state: AutocompleteState<Result>
+    setQuery: (query: string) => void
+    setIsOpen: (isOpen: boolean) => void
+  }) {
     if (!itemUrl) {
       return
     }
 
     router.push(itemUrl)
-
-    if (
-      itemUrl ===
-      window.location.pathname + window.location.search + window.location.hash
-    ) {
-      close()
-    }
+    highlightSearchTermAfterNavigation(itemUrl, item.title, state.query)
+    setQuery('')
+    setIsOpen(false)
+    close()
   }
 
   let [autocomplete] = useState<Autocomplete>(() =>
@@ -71,8 +81,9 @@ function useAutocomplete({ close }: { close: () => void }) {
       shouldPanelOpen({ state }) {
         return state.query !== ''
       },
+      // Navigation happens in onSelect, which runs for both Enter and click.
       navigator: {
-        navigate,
+        navigate() {},
       },
       getSources({ query }) {
         return import('@/mdx/search.mjs').then(({ search }) => {
@@ -80,12 +91,12 @@ function useAutocomplete({ close }: { close: () => void }) {
             {
               sourceId: 'documentation',
               getItems() {
-                return search(query, { limit: 5 })
+                return search(query, { limit: 8 })
               },
               getItemUrl({ item }) {
                 return item.url
               },
-              onSelect: navigate,
+              onSelect: select,
             },
           ]
         })
@@ -153,7 +164,7 @@ function HighlightQuery({ text, query }: { text: string; query: string }) {
   return (
     <Highlighter
       highlightClassName="underline bg-transparent text-sky-500"
-      searchWords={[query]}
+      searchWords={query.split(/\s+/).filter((word) => word.length > 1)}
       autoEscape={true}
       textToHighlight={text}
     />
@@ -201,6 +212,14 @@ function SearchResult({
       >
         <HighlightQuery text={result.title} query={query} />
       </div>
+      {result.snippet && (
+        <div
+          aria-hidden="true"
+          className="mt-1 line-clamp-2 text-xs text-zinc-600 dark:text-zinc-400"
+        >
+          <HighlightQuery text={result.snippet} query={query} />
+        </div>
+      )}
       {hierarchy.length > 0 && (
         <div
           id={`${id}-hierarchy`}
@@ -255,7 +274,7 @@ function SearchResults({
     <ul {...autocomplete.getListProps()}>
       {collection.items.map((result, resultIndex) => (
         <SearchResult
-          key={result.url}
+          key={result.url + result.title}
           result={result}
           resultIndex={resultIndex}
           autocomplete={autocomplete}
