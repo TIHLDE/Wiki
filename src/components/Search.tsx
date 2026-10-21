@@ -42,12 +42,14 @@ function useAutocomplete({ close }: { close: () => void }) {
   >({})
 
   function select({
+    event,
     itemUrl,
     item,
     state,
     setQuery,
     setIsOpen,
   }: {
+    event: React.SyntheticEvent | React.KeyboardEvent | React.MouseEvent
     itemUrl?: string
     item: Result
     state: AutocompleteState<Result>
@@ -57,7 +59,12 @@ function useAutocomplete({ close }: { close: () => void }) {
     if (!itemUrl) {
       return
     }
+    // Autocomplete opens ⌘/Ctrl+Enter in a new tab on its own.
+    if ('key' in event && (event.metaKey || event.ctrlKey)) {
+      return
+    }
 
+    highlightSearchTermAfterNavigation(itemUrl, item.title, state.query)
     let url = new URL(itemUrl, window.location.href)
     // router.push appends the new hash to an existing one on the same page (#a#b).
     if (url.pathname === window.location.pathname) {
@@ -65,7 +72,6 @@ function useAutocomplete({ close }: { close: () => void }) {
     } else {
       router.push(itemUrl)
     }
-    highlightSearchTermAfterNavigation(itemUrl, item.title, state.query)
     setQuery('')
     setIsOpen(false)
     close()
