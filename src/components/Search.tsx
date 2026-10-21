@@ -58,7 +58,13 @@ function useAutocomplete({ close }: { close: () => void }) {
       return
     }
 
-    router.push(itemUrl)
+    let url = new URL(itemUrl, window.location.href)
+    // router.push appends the new hash to an existing one on the same page (#a#b).
+    if (url.pathname === window.location.pathname) {
+      if (url.hash) window.location.hash = url.hash
+    } else {
+      router.push(itemUrl)
+    }
     highlightSearchTermAfterNavigation(itemUrl, item.title, state.query)
     setQuery('')
     setIsOpen(false)
@@ -359,11 +365,11 @@ function SearchDialog({
     },
   })
   let pathname = usePathname()
-  let searchParams = useSearchParams()
+  let search = useSearchParams().toString()
 
   useEffect(() => {
     setOpen(false)
-  }, [pathname, searchParams, setOpen])
+  }, [pathname, search, setOpen])
 
   useEffect(() => {
     if (open) {
