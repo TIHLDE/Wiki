@@ -159,9 +159,8 @@ export function search(query, options = {}) {
   let relaxedQuery = normalizeQuery(query)
 
   let attempts = [
-    [query, { boolean: 'and' }],
-    [relaxedQuery, { boolean: 'and', suggest: true, threshold: 2 }],
-    [relaxedQuery, { boolean: 'or', suggest: true, threshold: 3 }],
+    [query, {}],
+    [relaxedQuery, { suggest: true }],
   ]
   for (let [q, extra] of attempts) {
     let out = collect(

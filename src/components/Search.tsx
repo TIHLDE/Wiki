@@ -59,8 +59,8 @@ function useAutocomplete({ close }: { close: () => void }) {
     if (!itemUrl) {
       return
     }
-    // Autocomplete opens ⌘/Ctrl+Enter in a new tab on its own.
-    if ('key' in event && (event.metaKey || event.ctrlKey)) {
+    // Autocomplete opens ⌘/Ctrl/Shift+Enter in a new tab or window on its own.
+    if ('key' in event && (event.metaKey || event.ctrlKey || event.shiftKey)) {
       return
     }
 
